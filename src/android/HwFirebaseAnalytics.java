@@ -1,4 +1,5 @@
 package cordova.hw.firebase.analytics;
+import java.util.TimeZone;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -30,6 +31,7 @@ public class HwFirebaseAnalytics extends CordovaPlugin {
             return true;
         }
         else if(action.equals("getDeviceInfo")) {
+            Log.i(TAG, "getDeviceInfo");
             String message = args.getString(0);
             this.getDeviceInfo(message, callbackContext);
             return true;
@@ -58,7 +60,8 @@ public class HwFirebaseAnalytics extends CordovaPlugin {
             callbackContext.success(r);
         }
         catch(Exception e){
-
+            Log.d(TAG, Log.getStackTraceString(e));
+            callbackContext.error(e.getMessage());
         }
     }
     public String getUuid() {
