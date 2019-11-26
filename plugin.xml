@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-hw-firebase-analytics" version="0.0.1" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>HwFirebaseAnalytics</name>
+    <js-module name="HwFirebaseAnalytics" src="www/HwFirebaseAnalytics.js">
+        <clobbers target="HwFirebaseAnalytics" />
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="HwFirebaseAnalytics">
+                <param name="android-package" value="cordova.hw.firebase.analytics.HwFirebaseAnalytics" />
+            </feature>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml" />
+        <source-file src="src/android/HwFirebaseAnalytics.java" target-dir="src/cordova/hw/firebase/analytics/HwFirebaseAnalytics" />
+    </platform>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="HwFirebaseAnalytics">
+                <param name="ios-package" value="HwFirebaseAnalytics" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/HwFirebaseAnalytics.m" />
+    </platform>
+</plugin>
